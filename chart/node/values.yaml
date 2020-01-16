@@ -3,7 +3,7 @@
 replicaCount: 1
 revisionHistoryLimit: 1
 image:
-  repository: 172.30.114.74:5000/NikCanvin/get-data-eclipseMarketplace
+  repository: 172.30.114.74:5000/nikcanvin/getdataeclipsearketplace
   tag: latest
   pullPolicy: Always
   resources:
