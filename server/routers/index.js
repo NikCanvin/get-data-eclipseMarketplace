@@ -2,5 +2,5 @@
 module.exports = function(app, server){
     require('./public')(app);
     require('./health')(app);
-    require('./codewind')(app);
+    require('./get-data')(app);
 };
