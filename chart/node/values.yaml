@@ -3,8 +3,8 @@
 replicaCount: 1
 revisionHistoryLimit: 1
 image:
-  repository: icr.io/replace-me-namespace/node
-  tag: v1.0.0
+  repository: 172.30.114.74:5000/NikCanvin/get-data-eclipseMarketplace
+  tag: latest
   pullPolicy: Always
   resources:
     requests:
