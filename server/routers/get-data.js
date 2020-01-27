@@ -17,7 +17,7 @@ module.exports = function (app) {
         var foundMetrics="no";
         var gotData;
         var dataCreatedTimestamp = timestamp.utc('YYYY/MM/DD:HH:mm:ss');
-        var jsonOutput = { campaign: "Codewind", getDataType: "EclispePluginMarketplaceMetrics" };
+        var jsonOutput = { campaign: "Codewind", getDataType: "EclipsePluginMarketplaceMetrics" };
         jsonOutput.dataCreatedTimestamp = timestamp.utc('YYYY/MM/DD:HH:mm:ss');
         jsonOutput.metrics={};
         monthNumber=0;
@@ -53,6 +53,23 @@ module.exports = function (app) {
                 }
             }
         }
+
+        var id = timestamp.utc('YYYY/MM/DD:HH:mm:ss');
+        id = id.replace(/:/g, "");
+        id = id.replace(/\//g, "");
+        request({
+          uri: "http://datastore-default.apps.riffled.os.fyre.ibm.com/advocacy/EclipsePluginMarketplaceMetrics"+id,
+          method: "PUT",
+          headers: {
+              'Content-type': 'application/json'
+          },
+          body: jsonOutput,
+          json: true
+        }, (error, response, body) => {
+          console.log(error)
+        })
+
+
         res.json(jsonOutput);
         //res.status(200).send(gotData);
         }
